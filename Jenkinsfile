@@ -25,10 +25,10 @@ pipeline {
             steps {
                 script {
                     powershell '''
-                        if (docker images -q Login) {
-                            docker rm Login
+                        if (docker images -q login) {
+                            docker rm login
                         }
-                        docker build -t Login:latest .
+                        docker build -t login:latest .
                     '''
                     
                 }
@@ -39,13 +39,13 @@ pipeline {
             steps {
                 script {
                     powershell '''
-                        if (docker ps -q --filter "name=Login_container") {
-                            docker stop Login_container
+                        if (docker ps -q --filter "name=login_container") {
+                            docker stop login_container
                         }
-                        if (docker ps -aq --filter "name=Login_container") {
-                            docker rm Login_container
+                        if (docker ps -aq --filter "name=login_container") {
+                            docker rm login_container
                         }
-                        docker run -d -p 13000:13000 --name Login_container Login:latest
+                        docker run -d -p 13000:13000 --name login_container login:latest
                     '''
                 }
             }

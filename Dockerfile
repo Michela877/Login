@@ -9,7 +9,7 @@ WORKDIR /app/login
 
 
 # Installa le dipendenze Python
-RUN pip install Flask Werkzeug mysql-connector-python
+RUN pip install Flask Werkzeug mysql-connector-python bcrypt
 
 # Copia il codice dell'applicazione nella directory di lavoro nel container
 COPY . .

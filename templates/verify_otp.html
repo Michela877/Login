@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica OTP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Verifica OTP</h2>
+        <form method="post" action="{{ url_for('verify_otp') }}">
+            <label for="otp">Inserisci il codice OTP:</label>
+            <input type="text" id="otp" name="otp" required><br>
+            <button type="submit">Verifica</button>
+            <p>{{ msg }}</p>
+        </form>
+    </div>
+</body>
+</html>

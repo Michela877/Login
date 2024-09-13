@@ -152,7 +152,7 @@ def home():
 @app.route('/admin')
 def admin():
     if 'loggedin' in session and session.get('role') == 'Admin':
-        return redirect('http://192.168.178.188:5000?email=' + session['email'])
+        return redirect('http://40.65.111.152:5000?email=' + session['email'])
     flash('Accesso non autorizzato.')
     log_event(f"Accesso non autorizzato per l'email: {session.get('email')}")
     return redirect(url_for('login'))
@@ -168,7 +168,7 @@ def amministrazione():
 @app.route('/manager')
 def manager():
     if 'loggedin' in session and session.get('role') == 'Manager':
-        return redirect('http://192.168.178.154:10010/?email=' + session['email'])
+        return redirect('http://40.65.111.152:10010/?email=' + session['email'])
     flash('Accesso non autorizzato.')
     log_event(f"Accesso non autorizzato per l'email: {session.get('email')}")
     return redirect(url_for('login'))
@@ -176,7 +176,7 @@ def manager():
 @app.route('/dipendente')
 def dipendente():
     if 'loggedin' in session and session.get('role') == 'Dipendente':
-        return redirect('http://192.168.178.162:14000/home?email=' + session['email'])
+        return redirect('http://40.65.111.152:14000/home?email=' + session['email'])
     flash('Accesso non autorizzato.')
     log_event(f"Accesso non autorizzato per l'email: {session.get('email')}")
     return redirect(url_for('login'))
